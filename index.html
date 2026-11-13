@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taman Kecil</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="lock">
+<canvas id="fx"></canvas>
+<div id="bar"></div>
+
+<div id="gate"><div class="card" id="card">
+  <div class="ico">&#127802;</div>
+  <div class="eyebrow" style="justify-content:center;font-size:9px;margin:0 0 6px">Taman kecil yang ditanam diam-diam, khusus buat kamu</div>
+  <h3>Masuk ke taman</h3>
+  <p>Ada sesuatu di balik ini, dan hanya dirimu yg bisa buka.</p>
+  <div class="pin" id="pin"><input maxlength="1" inputmode="numeric" aria-label="Digit 1"><input maxlength="1" inputmode="numeric" aria-label="Digit 2"><input maxlength="1" inputmode="numeric" aria-label="Digit 3"><input maxlength="1" inputmode="numeric" aria-label="Digit 4"></div>
+  <button class="btn" id="open" style="width:100%">Buka &rarr;</button>
+  <div id="err" role="alert"></div>
+</div></div>
+
+<nav id="nav">
+  <a href="#beranda">Beranda</a><a href="#galeri">Galeri</a><a href="#alasan">Alasan</a><a href="#surat">Surat</a><a href="#lagu">Lagu</a><a href="#hitung">Hitung Mundur</a><a href="#penutup">Penutup</a>
+</nav>
+
+<section id="beranda">
+  <div class="eyebrow" id="greet"></div>
+  <h1 id="to"></h1>
+  <div class="tag">Ada yang mau aku bilang sama sayanggg</div>
+  <p class="lead">Aku sadar udah buat sayanggg kesal sama aku. Aku ga mau sembunyi atau nyari alasan, padahal aku tau sayang udah capek kaliii minggu iniii, maka dari itu jadi aku buat taman kecil ini untuk bilang satu hal: aku minta maaf.</p>
+  <a class="link" href="#galeri">Masuk ke taman</a>
+</section>
+
+<section id="galeri">
+  <div class="eyebrow">Koleksi kenangan</div>
+  <h2>Disimpen di antara <em>halaman ini</em></h2>
+  <p class="lead">Lima momen yang pengen aku simpen, karena kamu ada di semuanya.</p>
+  <div class="polas" id="polas"></div>
+</section>
+
+<section id="alasan">
+  <div class="eyebrow">A Small Note for u</div>
+  <h2>Hal-hal yang <em>baru aku sadari</em></h2>
+  <p class="lead">Daftarnya pasti bakal nambah terus, kayak taman ini.</p>
+  <div class="rs" id="rs"></div>
+</section>
+
+<section id="surat">
+  <div class="eyebrow">Disegel pake kelopak bunga</div>
+  <h2>Sebuah surat, diselipin di <em>halaman ini</em>, cuma buat kamu</h2>
+  <div class="let" id="let"></div>
+  <div class="sig" id="sig"></div>
+</section>
+
+<section id="lagu">
+  <div class="eyebrow">Lagu kita</div>
+  <h2>Satu lagu yang <em>ngingetin</em> aku sama kamu</h2>
+  <p class="lead">Lagu yang selalu muter waktu taman ini lagi ditanam, sampai sekarang masih keinget. Pencet play, biarin dia jalan pelan-pelan di belakang.</p>
+  <div class="pl">
+    <button id="pp" aria-label="Putar">&#9654;</button>
+    <div class="pi"><b id="st"></b><span id="sa"></span>
+      <div id="pg"><div id="pf"></div></div>
+      <div class="tm"><span id="cur">0:00</span><span id="dur">0:00</span></div></div>
+  </div>
+  <button class="mini" id="pick">Pilih file lagu dari perangkat</button>
+  <audio id="au" src="lagu.mp3" preload="metadata"></audio>
+  <input type="file" id="af" accept="audio/*" hidden>
+</section>
+
+<section id="hitung">
+  <div class="eyebrow">Sampai nanti</div>
+  <h2>Ngitung hari sampai kita <em>baikan lagi</em>, aku bakal nunggu</h2>
+  <div class="cd"><div><b id="cd">0</b><span>Hari</span></div><div><b id="ch">0</b><span>Jam</span></div><div><b id="cm">0</b><span>Menit</span></div><div><b id="cs">0</b><span>Detik</span></div></div>
+</section>
+
+<section id="penutup">
+  <div class="eyebrow">Halaman terakhir, semoga bukan yang terakhir</div>
+  <h2 style="font-size:clamp(40px,8vw,84px)">Aku Minta Maaf, <em>sayang</em></h2>
+  <p class="q">"Aku ga mau kehilangan kamu cuma gara-gara kesalahan aku."</p>
+  <p class="lead">Makasih udah mau baca sampai habis. Semoga kita bisa mulai lagi dari awal.</p>
+  <button class="btn line" id="burst" style="margin-top:28px">Biarin kelopaknya jatuh</button>
+  <div class="foot"><b>Buat Kamu</b>Ditanam pelan-pelan, halaman demi halaman, pake semua penyesalan dan sayang aku. <span id="fr"></span></div>
+</section>
+
+<button class="gear" id="gear" aria-label="Pengaturan">&#9881;</button>
+<div class="panel" id="panel"><div class="pbox">
+  <h3>Atur taman kamu</h3>
+  <label>Nama penerima</label><input id="e_to">
+  <label>Nama kamu (pengirim)</label><input id="e_from">
+  <label>PIN gerbang (4 angka)</label><input id="e_pin" maxlength="4" inputmode="numeric">
+  <label>Tanggal hitung mundur</label><input id="e_date" type="datetime-local">
+  <label>Isi surat (paragraf dipisah baris kosong, *teks* jadi miring)</label><textarea id="e_letter"></textarea>
+  <label>Keterangan 5 foto (satu baris per foto)</label><textarea id="e_caps" style="min-height:100px"></textarea>
+  <label>Alasan (format: judul | isi, satu baris per alasan)</label><textarea id="e_rs"></textarea>
+  <label>Judul lagu</label><input id="e_song">
+  <label>Nama penyanyi</label><input id="e_artist">
+  <small>Foto: klik kotak foto di bagian Galeri. Lagu: taruh file bernama lagu.mp3 di folder yang sama dengan file ini, atau klik "Pilih file lagu" di bagian Lagu.</small>
+  <button class="btn" id="save">Simpan</button>
+  <button class="btn" id="exp">Unduh data.js</button>
+  <button class="btn line" id="close" style="color:#3a0a14;border-color:#3a0a14">Tutup</button>
+  <small>"Unduh data.js" menyimpan semua teks dan foto kamu. Letakkan file data.js itu di folder yang sama dengan index.html (timpa yang lama). Lalu kirim seluruh folder atau unggah ke hosting gratis seperti Netlify Drop.</small>
+</div></div>
+<input type="file" id="pf_in" accept="image/*" hidden>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
